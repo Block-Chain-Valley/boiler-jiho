@@ -6,7 +6,7 @@ function Footer() {
         <ul className="flex space-x-4">
           <li>
             <a href="#" className="hover:text-gray-300">
-              Privacy Policy
+              Privacy Polic
             </a>
           </li>
           <li>
