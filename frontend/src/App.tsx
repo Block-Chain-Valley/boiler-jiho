@@ -8,6 +8,8 @@ import Home from "./pages/Home";
 import { WagmiConfig, createClient } from "wagmi";
 import { getDefaultProvider } from "ethers";
 import Trade from "./pages/Trade";
+import ExchangePage from "./pages/Trade";
+import TradeBox from "./pages/Trade";
 
 const client = createClient({
   autoConnect: true,
