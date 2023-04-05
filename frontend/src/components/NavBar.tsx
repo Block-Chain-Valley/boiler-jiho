@@ -1,13 +1,22 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { useAccount, useConnect, useDisconnect } from "wagmi";
+import { InjectedConnector } from "wagmi/connectors/injected";
+import { makeShortAddress } from "../utils/transform";
 
 function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const { address, isConnected } = useAccount();
+  const { connect } = useConnect({
+    connector: new InjectedConnector(),
+  });
+  const { disconnect } = useDisconnect();
   return (
     <header className="flex  items-center">
       <div className="block md:hidden fixed top-5 right-5 ">
         <button
-          className="flex items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white"
+          className="flex mr-2 items-center px-3 py-2 border rounded text-gray-200 border-gray-400 hover:text-white hover:border-white"
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
         >
           <svg
@@ -20,28 +29,59 @@ function NavBar() {
         </button>
       </div>
       <div className={`flex md:flex  ${mobileMenuOpen ? "block" : "hidden"}`}>
-        <div className="flex flex-col md:flex-row max-md:fixed max-md:w-20 max-md:bg-gray-800 max-md:top-16 max-md:right-0  max-md:items-center max-md:justify-center ">
+        <div className="flex flex-col md:flex-row max-md:fixed max-md:w-24 max-md:bg-gray-800 max-md:top-16 max-md:right-0  max-md:items-center max-md:justify-center ">
           <Link
             to="/"
-            className="flex  md:inline-block md:mt-0 text-gray-200 hover:text-white m-2"
+            className={`flex  md:inline-block md:mt-0 text-gray-200 hover:text-white mr-2 max-md:m-2
+            ${location.pathname === "/" ? "bg-slate-400 rounded" : ""}
+            `}
             onClick={() => setMobileMenuOpen(false)}
           >
             Home
           </Link>
           <Link
             to="/about"
-            className="flex  md:inline-block md:mt-0 text-gray-200 hover:text-white m-2 "
+            className={`flex  md:inline-block md:mt-0 text-gray-200 hover:text-white mr-2 max-md:m-2
+            ${location.pathname === "/about" ? "bg-slate-400 rounded" : ""}
+            `}
             onClick={() => setMobileMenuOpen(false)}
           >
             About
           </Link>
           <Link
             to="/contact"
-            className="flex  md:inline-block md:mt-0 text-gray-200 hover:text-white m-2"
+            className={`flex  md:inline-block md:mt-0 text-gray-200 hover:text-white mr-2 max-md:m-2
+            ${location.pathname === "/contact" ? "bg-slate-400 rounded" : ""}
+            `}
             onClick={() => setMobileMenuOpen(false)}
           >
             Contact
           </Link>
+          <Link
+            to="/trade"
+            className={`flex  md:inline-block md:mt-0 text-gray-200 hover:text-white mr-2 max-md:m-2
+            ${location.pathname === "/trade" ? "bg-slate-400 rounded" : ""}
+            `}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Trade
+          </Link>
+          {isConnected ? (
+            <div className="flex items-center">
+              <div className="mr-2 max-md:hidden">
+                Connected to {makeShortAddress(address)}
+              </div>
+              <button className="mr-2 max-md:m-2" onClick={() => disconnect()}>
+                Disconnect
+              </button>
+            </div>
+          ) : (
+            <div>
+              <button className="mr-2 max-md:m-2" onClick={() => connect()}>
+                Connect
+              </button>
+            </div>
+          )}
         </div>
       </div>
     </header>
