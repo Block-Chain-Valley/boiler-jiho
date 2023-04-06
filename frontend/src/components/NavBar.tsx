@@ -1,17 +1,16 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { useAccount, useConnect, useDisconnect } from "wagmi";
-import { InjectedConnector } from "wagmi/connectors/injected";
 import { makeShortAddress } from "../utils/transform";
 
 function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
-  const { address, isConnected } = useAccount();
-  const { connect } = useConnect({
-    connector: new InjectedConnector(),
-  });
-  const { disconnect } = useDisconnect();
+
+  const isConnected = false;
+  const address = ""
+  const connect = () => {}
+  const disconnect = () => {}
+
   return (
     <header className="flex  items-center">
       <div className="block md:hidden fixed top-5 right-5 ">

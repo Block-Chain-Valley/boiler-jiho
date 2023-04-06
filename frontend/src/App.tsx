@@ -1,24 +1,20 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
 import Footer from "./components/Footer";
 import Header from "./components/Header";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Home from "./pages/Home";
-import { WagmiConfig, createClient } from "wagmi";
 import { getDefaultProvider } from "ethers";
 import Trade from "./pages/Trade";
 import ExchangePage from "./pages/Trade";
 import TradeBox from "./pages/Trade";
+import { ethereum } from "./utils/metamask";
 
-const client = createClient({
-  autoConnect: true,
-  provider: getDefaultProvider(),
-});
 
 function App() {
+
+
   return (
-    <WagmiConfig client={client}>
       <BrowserRouter>
         <Header />
         <Routes>
@@ -29,7 +25,6 @@ function App() {
         </Routes>
         <Footer />
       </BrowserRouter>
-    </WagmiConfig>
   );
 }
 
