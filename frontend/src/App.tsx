@@ -8,23 +8,24 @@ import { getDefaultProvider } from "ethers";
 import Trade from "./pages/Trade";
 import ExchangePage from "./pages/Trade";
 import TradeBox from "./pages/Trade";
-import { ethereum } from "./utils/metamask";
-
+import { useEffect } from "react";
 
 function App() {
-
+  useEffect(() => {
+    console.log(window.ethereum?.chainId);
+  }, []);
 
   return (
-      <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/trade" element={<Trade />} />
-        </Routes>
-        <Footer />
-      </BrowserRouter>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/trade" element={<Trade />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
