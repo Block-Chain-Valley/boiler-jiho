@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./index.css";
 import { MetaMaskInpageProvider } from "@metamask/providers";
+import { RecoilRoot } from "recoil";
 
 declare global {
   interface Window{
@@ -10,7 +11,8 @@ declare global {
   }
 }
 
-
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <App />
+  <RecoilRoot>
+    <App />
+  </RecoilRoot>
 );

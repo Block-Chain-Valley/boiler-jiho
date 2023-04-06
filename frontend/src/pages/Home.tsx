@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connectMetamask } from "../utils/metamask";
 
 function Home() {
+
   return (
     <main>
       <div className="max-w-screen-lg mx-auto py-12 px-4 sm:px-6 lg:px-8">

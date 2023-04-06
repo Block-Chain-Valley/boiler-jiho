@@ -1,15 +1,13 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { makeShortAddress } from "../utils/transform";
+import { useConnectWallet } from "../states/wallet";
 
 function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  const isConnected = false;
-  const address = ""
-  const connect = () => {}
-  const disconnect = () => {}
+  const {account, chainId, connect, disconnect} = useConnectWallet();
 
   return (
     <header className="flex  items-center">
@@ -65,18 +63,18 @@ function NavBar() {
           >
             Trade
           </Link>
-          {isConnected ? (
+          {account ? (
             <div className="flex items-center">
               <div className="mr-2 max-md:hidden">
-                Connected to {makeShortAddress(address)}
+                Connected to {makeShortAddress(account)}
               </div>
-              <button className="mr-2 max-md:m-2" onClick={() => disconnect()}>
+              <button className="mr-2 max-md:m-2" onClick={disconnect}>
                 Disconnect
               </button>
             </div>
           ) : (
             <div>
-              <button className="mr-2 max-md:m-2" onClick={() => connect()}>
+              <button className="mr-2 max-md:m-2" onClick={connect}>
                 Connect
               </button>
             </div>

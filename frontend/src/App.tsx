@@ -11,10 +11,6 @@ import TradeBox from "./pages/Trade";
 import { useEffect } from "react";
 
 function App() {
-  useEffect(() => {
-    console.log(window.ethereum?.chainId);
-  }, []);
-
   return (
     <BrowserRouter>
       <Header />
