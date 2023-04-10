@@ -23,28 +23,29 @@ function TradeBox() {
 
   return (
     <Wrap>
-      <div>SWAP</div>
-      <div className="flex justify-center items-center w-88 h-48 bg-[#0D0D2B]">
+      <StyledTitle>SWAP</StyledTitle>
+      <StyledTradeBox>
         <div>
-          <div className="flex">
-            <input type="text" />
+          <StyledInputBox className="flex">
+            <StyledInput type="text" value="0.00" />
+            <select>
+              <option value="ETH" selected>
+                ETH
+              </option>
+              <option value="USDT">USDT</option>
+            </select>
+          </StyledInputBox>
+          <StyledInputBox className="flex">
+            <StyledInput type="text" value="0.00" />
             <select>
               <option value="ETH">ETH</option>
               <option value="USDT">USDT</option>
             </select>
-          </div>
-          <div className="flex">
-            <input type="text" />
-            <select>
-              <option value="ETH">ETH</option>
-              <option value="USDT">USDT</option>
-            </select>
-          </div>
+          </StyledInputBox>
         </div>
-        <div>
-          <button>Swap</button>
-        </div>
-      </div>
+
+        <StyledSwapButton>Swap</StyledSwapButton>
+      </StyledTradeBox>
       <button onClick={getPairBalance}>Get Pair Balance</button>
     </Wrap>
   );
@@ -55,50 +56,92 @@ const Wrap = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
-  height: 100%;
-  background-color: #0d0d2b;
+  margin: 50px auto;
+  width: 664px;
+  height: 316px;
+  border-radius: 20px;
+  background-color: #4f4c64;
   color: #fff;
   font-size: 20px;
   font-weight: 700;
-  .flex {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  input {
-    width: 200px;
-    height: 40px;
-    background-color: #0d0d2b;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-  }
+`;
+
+const StyledTitle = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 79px;
+  height: 32px;
+  margin: 20px;
+  background: #ffffff;
+  color: #000000;
+  border-radius: 32px;
+`;
+
+const StyledTradeBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 535px;
+  height: 212px;
+  background: #0d0d2b;
+  border-radius: 20px;
+`;
+const StyledInputBox = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 52px;
+  margin: 20px;
+  background: #ffffff;
+  border-radius: 10px;
   select {
-    width: 100px;
-    height: 40px;
-    background-color: #0d0d2b;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    border: none;
-    border-bottom: 1px solid #fff;
+    width: 81px;
+    height: 32px;
+    font-size: 12px;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 25px;
+    :focus {
+      outline: none;
+    }
+
+    option {
+      color: #000000;
+    }
+  }
+`;
+
+const StyledInput = styled.input`
+  width: 110px;
+  height: 52px;
+
+  background: #ffffff;
+  color: #000000;
+  border-radius: 10px;
+  &::placeholder {
+    color: #000000;
+  }
+  :focus {
     outline: none;
   }
-  button {
-    width: 200px;
-    height: 40px;
-    background-color: #0d0d2b;
-    color: #fff;
-    font-size: 20px;
-    font-weight: 700;
-    border: none;
-    border-bottom: 1px solid #fff;
-    outline: none;
-  }
+`;
+
+const StyledSwapButton = styled.button`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 136px;
+  height: 52px;
+  margin: 0 20px;
+  /* primary */
+
+  background: #4452fe;
+  /* shadow */
+
+  box-shadow: 0px 4px 31px rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
 `;
 
 export default TradeBox;
