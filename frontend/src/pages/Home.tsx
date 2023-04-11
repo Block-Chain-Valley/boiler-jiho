@@ -85,16 +85,73 @@ function Home() {
         </div>
       </div>
       <div className="flex w-full mt-10 bg-[#2b076e] items-center justify-center flex-col">
-        <div className="flex text-4xl font-bold">
-          Market sentiments, portfolio, and run the infrastructure of your cho
+        <div className="flex mt-14 items-center justify-center text-4xl font-bold">
+          Market sentiments, portfolio,
+          <br /> and run the infrastructure of your cho
         </div>
-        <div>
-          <h1>Invest Smart</h1>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed
-            malesuada, nisl eget aliquam tincidunt, nunc elit aliquam massa,
-          </p>
-          <button>LearnMore</button>
+        <div className="flex flex-row">
+          <div>
+            <h1 className="text-xl">Invest Smart</h1>
+            <p>
+              Lorem ipsum dolor sit amet, <br />
+              consectetur adipiscing elit. Sed
+            </p>
+            <button className="bg-[#3671e9]">LearnMore</button>
+          </div>
+
+          <div>
+            <img src={Home1} className="w-12" />
+          </div>
+        </div>
+        <div className="flex mt-14 items-center justify-center text-4xl font-bold">
+          Market sentiments, portfolio,
+          <br /> and run the infrastructure of your cho
+        </div>
+        <div className="flex flex-row">
+          <div>
+            <h1 className="text-xl">Invest Smart</h1>
+            <p>
+              Lorem ipsum dolor sit amet, <br />
+              consectetur adipiscing elit. Sed
+            </p>
+            <button className="bg-[#3671e9]">LearnMore</button>
+          </div>
+
+          <div>
+            <img src={Home1} className="w-12" />
+          </div>
+        </div>
+        <div className="flex mt-14 items-center justify-center text-4xl font-bold">
+          Market sentiments, portfolio,
+          <br /> and run the infrastructure of your cho
+        </div>
+        <div className="flex flex-row">
+          <div>
+            <h1 className="text-xl">Invest Smart</h1>
+            <p>
+              Lorem ipsum dolor sit amet, <br />
+              consectetur adipiscing elit. Sed
+            </p>
+            <button className="bg-[#3671e9]">LearnMore</button>
+          </div>
+
+          <div>
+            <img src={Home1} className="w-12" />
+          </div>
+        </div>
+
+        <div className="flex flex-row mt-[100px] mb-[100px] w-[700px] h-[216px] bg-[#3671e9] rounded-2xl">
+          <div>
+            <h1 className="mt-[36px] ml-[36px] text-2xl font-bold ">
+              Start Mining MNow
+            </h1>
+            <p> ldsfasfasdfsd</p>
+          </div>
+          <div>
+            <button className="mt-[100px] ml-[250px] w-[152px] h-[55px] bg-[#ffffff]">
+              as
+            </button>
+          </div>
         </div>
       </div>
     </main>
