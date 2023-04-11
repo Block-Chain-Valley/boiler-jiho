@@ -7,7 +7,7 @@ function NavBar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
 
-  const {account, chainId, connect, disconnect} = useConnectWallet();
+  const { account, chainId, connect, disconnect } = useConnectWallet();
 
   return (
     <header className="flex  items-center">
@@ -62,6 +62,15 @@ function NavBar() {
             onClick={() => setMobileMenuOpen(false)}
           >
             Trade
+          </Link>
+          <Link
+            to="/pools"
+            className={`flex  md:inline-block md:mt-0 text-gray-200 hover:text-white mr-2 max-md:m-2
+            ${location.pathname === "/pools" ? "bg-slate-400 rounded" : ""}
+            `}
+            onClick={() => setMobileMenuOpen(false)}
+          >
+            Pools
           </Link>
           {account ? (
             <div className="flex items-center">

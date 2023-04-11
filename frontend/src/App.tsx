@@ -9,6 +9,7 @@ import Trade from "./pages/Trade";
 import ExchangePage from "./pages/Trade";
 import TradeBox from "./pages/Trade";
 import { useEffect } from "react";
+import Pools from "./pages/Pools";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
         <Route path="/trade" element={<Trade />} />
+        <Route path="/pools" element={<Pools />} />
       </Routes>
       <Footer />
     </BrowserRouter>
